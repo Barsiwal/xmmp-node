@@ -27,14 +27,7 @@ app.post("/", function (req, res) {
 });
 
 function PostCode() {
-    // Build the post string from an object
-    var post_data = querystring.stringify({
-        'compilation_level': 'ADVANCED_OPTIMIZATIONS',
-        'output_format': 'json',
-        'output_info': 'compiled_code',
-        'warning_level': 'QUIET'
-    });
-    // An object of options to indicate where to post to
+    // Build the post string from an objectbject of options to indicate where to post to
     var post_options = {
         host: 'localhost:5280',
         port: '80',
@@ -42,7 +35,7 @@ function PostCode() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Length': Buffer.byteLength(post_data),
+            'Host': 'localhost:5280',
             'Authorization': auth
         },
         body:{
