@@ -3,13 +3,19 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var request = require('request');
 
 var username = "admin@karan-barsiwal-linux";
 var password = "admin";
 var url = "http://localhost:5280/admin/server/karan-barsiwal-linux/users/";
 var auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
 var app = express();
+
+
+var http = require('http');
+
+
+var httpServer = http.createServer(app);
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -59,8 +65,4 @@ function PostCode() {
 
 
 
-
-var port = process.env.PORT || '3000';
-app.listen(port, function () {
-    console.log('listening on port ' + process.env.PORT);
-});
+httpServer.listen(3000);
