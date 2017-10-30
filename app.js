@@ -26,7 +26,7 @@ app.post("/", function (req, res) {
     var password;
     username = req.body.username;
     password = req.body.password;
-
+    var a;
     const options = {
         url: 'http://localhost:5280/admin/server/karan-barsiwal-linux/users/',
         method: 'POST',
@@ -46,6 +46,8 @@ app.post("/", function (req, res) {
     };
 
     request(options, function (err, res, body) {
+        console.log(body);
+        console.log(res);
     });
     return res.send({
         status: 'ok'
