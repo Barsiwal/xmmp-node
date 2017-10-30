@@ -4,11 +4,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const request = require('request');
-
-var username = "admin@karan-barsiwal-linux";
-var password = "admin";
-var url = "http://localhost:5280/admin/server/karan-barsiwal-linux/users/";
-var auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
 var app = express();
 
 var http = require('http');
@@ -27,6 +22,8 @@ app.post("/", function (req, res) {
     username = req.body.username;
     password = req.body.password;
     var a;
+    console.log(username);
+    console.log(password);
     const options = {
         url: 'http://localhost:5280/admin/server/karan-barsiwal-linux/users/',
         method: 'POST',
@@ -48,6 +45,7 @@ app.post("/", function (req, res) {
     request(options, function (err, res, body) {
         console.log(body);
         console.log(res);
+        console.log(err);
     });
     return res.send({
         status: 'ok'
