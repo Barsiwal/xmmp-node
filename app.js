@@ -46,8 +46,6 @@ app.post("/", function (req, res) {
     };
 
     request(options, function (err, res, body) {
-        let json = JSON.parse(body);
-        console.log(json);
     });
     return res.send({
         status: 'ok'
